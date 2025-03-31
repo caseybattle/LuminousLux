@@ -1,3582 +1,1880 @@
-[
-
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Luminous | Luxury Artisan Candles</title>
-
-   
-
+    <title>LUMINOUS LUX | Premium Artisan Candles</title>
+    
     <!-- Fonts -->
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
-
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500&family=Italiana&display=swap" rel="stylesheet">
-
-   
-
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@400;500;600&family=Montserrat:wght@300;400;500&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
+    
     <!-- Font Awesome -->
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-   
-
+    
     <!-- Favicon -->
-
     <link rel="icon" type="image/png" href="https://placehold.co/32x32">
-
-   
-
-    <!-- Meta Tags -->
-
-    <meta name="description" content="Discover luxury handcrafted candles at Luminous. Our premium collection features exotic scents and elegant designs for the modern home.">
-
-    <meta name="keywords" content="luxury candles, handcrafted candles, scented candles, home fragrance, aromatherapy, soy candles">
-
-    <meta property="og:title" content="Luminous | Luxury Artisan Candles">
-
-    <meta property="og:description" content="Discover luxury handcrafted candles at Luminous. Premium collection of exotic scents and elegant designs.">
-
-    <meta property="og:image" content="https://placehold.co/1200x630">
-
-    <meta property="og:url" content="https://luminouscandles.com">
-
-   
-
-    <!-- GSAP for animations -->
-
+    
+    <!-- GSAP -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-
-   
-
-    <!-- Locomotive Scroll for smooth scrolling -->
-
-    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
-
-   
-
-    <!-- Swiper for carousels -->
-
+    
+    <!-- Swiper -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
-
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-
-   
-
-    <!-- Three.js for 3D elements -->
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-
-   
-
-    <!-- Custom styles -->
-
+    
     <style>
-
         :root {
-
-            --primary-color: #8a6d5f;
-
-            --secondary-color: #f5f1ed;
-
-            --accent-color: #d4b59e;
-
-            --dark-accent: #3a2e28;
-
-            --text-dark: #333333;
-
-            --text-light: #f8f5f2;
-
-            --font-heading: 'Italiana', serif;
-
-            --font-subheading: 'Cormorant Garamond', serif;
-
+            --primary: #7a6a58;
+            --secondary: #f6f4f0;
+            --accent: #d8c8b8;
+            --dark: #2e2a26;
+            --text: #333333;
+            --light-text: #f8f5f2;
+            --border: 1px solid rgba(0,0,0,0.1);
+            --transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            --font-heading: 'Playfair Display', serif;
+            --font-subheading: 'Cormorant', serif;
             --font-body: 'Montserrat', sans-serif;
-
-            --transition-slow: 0.7s cubic-bezier(0.25, 1, 0.5, 1);
-
-            --transition-medium: 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-
-            --transition-fast: 0.2s cubic-bezier(0.25, 1, 0.5, 1);
-
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+            --shadow-lg: 0 15px 40px rgba(0,0,0,0.12);
+            --section-spacing: 120px;
+            --container-max: 1480px;
         }
-
-       
-
+        
         * {
-
             margin: 0;
-
             padding: 0;
-
             box-sizing: border-box;
-
         }
-
-       
-
+        
         html {
-
             scroll-behavior: smooth;
-
         }
-
-       
-
+        
         body {
-
             font-family: var(--font-body);
-
-            color: var(--text-dark);
-
+            color: var(--text);
             line-height: 1.6;
-
-            background-color: var(--secondary-color);
-
-            overflow-x: hidden;
-
+            background-color: var(--secondary);
+            overscroll-behavior: none;
+            -webkit-font-smoothing: antialiased;
         }
-
-       
-
+        
         h1, h2, h3, h4, h5 {
-
             font-family: var(--font-heading);
-
-            font-weight: 400;
-
-            letter-spacing: 1px;
-
-        }
-
-       
-
-        h6 {
-
-            font-family: var(--font-subheading);
-
             font-weight: 500;
-
             letter-spacing: 0.5px;
-
         }
-
-       
-
+        
+        h6 {
+            font-family: var(--font-subheading);
+            font-weight: 500;
+        }
+        
         a {
-
             text-decoration: none;
-
             color: inherit;
-
-            transition: all var(--transition-fast);
-
+            transition: var(--transition);
         }
-
-       
-
+        
         button {
-
             cursor: pointer;
-
             font-family: var(--font-body);
-
-            transition: all var(--transition-fast);
-
-        }
-
-       
-
-        .container {
-
-            max-width: 1400px;
-
-            margin: 0 auto;
-
-            padding: 0 2rem;
-
-        }
-
-       
-
-        .section-title {
-
-            font-size: 3rem;
-
-            margin-bottom: 1.5rem;
-
-            position: relative;
-
-            display: inline-block;
-
-        }
-
-       
-
-        .section-title::after {
-
-            content: '';
-
-            position: absolute;
-
-            width: 60px;
-
-            height: 2px;
-
-            background-color: var(--accent-color);
-
-            bottom: -10px;
-
-            left: 0;
-
-        }
-
-       
-
-        .text-center {
-
-            text-align: center;
-
-        }
-
-       
-
-        .text-center .section-title::after {
-
-            left: 50%;
-
-            transform: translateX(-50%);
-
-        }
-
-       
-
-        /* Cursor */
-
-        .custom-cursor {
-
-            position: fixed;
-
-            width: 20px;
-
-            height: 20px;
-
-            border-radius: 50%;
-
-            background-color: rgba(138, 109, 95, 0.3);
-
-            pointer-events: none;
-
-            z-index: 9999;
-
-            transform: translate(-50%, -50%);
-
-            transition: width 0.3s, height 0.3s, background-color 0.3s;
-
-            mix-blend-mode: difference;
-
-        }
-
-       
-
-        .custom-cursor.active {
-
-            width: 50px;
-
-            height: 50px;
-
-            background-color: rgba(138, 109, 95, 0.2);
-
-        }
-
-       
-
-        /* Navigation */
-
-        .nav-container {
-
-            position: fixed;
-
-            width: 100%;
-
-            top: 0;
-
-            left: 0;
-
-            z-index: 1000;
-
-            transition: background-color 0.4s ease, padding 0.4s ease;
-
-        }
-
-       
-
-        .nav-container.scrolled {
-
-            background-color: rgba(245, 241, 237, 0.95);
-
-            backdrop-filter: blur(10px);
-
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-
-            padding: 0.5rem 0;
-
-        }
-
-       
-
-        .nav-content {
-
-            max-width: 1400px;
-
-            margin: 0 auto;
-
-            display: flex;
-
-            justify-content: space-between;
-
-            align-items: center;
-
-            padding: 1.5rem 2rem;
-
-            transition: padding 0.4s ease;
-
-        }
-
-       
-
-        .scrolled .nav-content {
-
-            padding: 1rem 2rem;
-
-        }
-
-       
-
-        .logo {
-
-            font-family: var(--font-heading);
-
-            font-size: 2rem;
-
-            letter-spacing: 3px;
-
-            color: var(--primary-color);
-
-            position: relative;
-
-            z-index: 2;
-
-        }
-
-       
-
-        .nav-links {
-
-            display: flex;
-
-            gap: 3rem;
-
-        }
-
-       
-
-        .nav-link {
-
-            font-size: 0.9rem;
-
-            text-transform: uppercase;
-
-            letter-spacing: 1.5px;
-
-            position: relative;
-
-            padding: 0.5rem 0;
-
-        }
-
-       
-
-        .nav-link:after {
-
-            content: '';
-
-            position: absolute;
-
-            width: 0;
-
-            height: 1px;
-
-            bottom: 0;
-
-            left: 0;
-
-            background-color: var(--primary-color);
-
-            transition: width var(--transition-medium);
-
-        }
-
-       
-
-        .nav-link:hover:after {
-
-            width: 100%;
-
-        }
-
-       
-
-        .nav-actions {
-
-            display: flex;
-
-            align-items: center;
-
-            gap: 1.5rem;
-
-        }
-
-       
-
-        .nav-icon {
-
-            font-size: 1.2rem;
-
-            color: var(--primary-color);
-
-            position: relative;
-
-        }
-
-       
-
-        .cart-count {
-
-            position: absolute;
-
-            top: -8px;
-
-            right: -8px;
-
-            background-color: var(--accent-color);
-
-            color: white;
-
-            border-radius: 50%;
-
-            width: 18px;
-
-            height: 18px;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            font-size: 0.7rem;
-
-            font-weight: 500;
-
-        }
-
-       
-
-        .menu-toggle {
-
-            display: none;
-
+            transition: var(--transition);
             background: none;
-
             border: none;
-
-            color: var(--primary-color);
-
-            font-size: 1.5rem;
-
-            z-index: 2;
-
         }
-
-       
-
-        /* Hero Section */
-
-        .hero {
-
-            height: 100vh;
-
-            position: relative;
-
-            overflow: hidden;
-
-            margin-top: 0;
-
-        }
-
-       
-
-        .hero-bg {
-
-            position: absolute;
-
-            top: 0;
-
-            left: 0;
-
-            width: 100%;
-
-            height: 100%;
-
-            background: linear-gradient(135deg, var(--secondary-color) 0%, #e9e1d9 100%);
-
-            z-index: -1;
-
-        }
-
-       
-
-        .hero-content {
-
-            display: flex;
-
-            height: 100%;
-
-            align-items: center;
-
-            justify-content: space-between;
-
-            padding: 0 5%;
-
-        }
-
-       
-
-        .hero-text {
-
-            max-width: 600px;
-
-            z-index: 1;
-
-        }
-
-       
-
-        .hero-subtitle {
-
-            font-family: var(--font-subheading);
-
-            font-size: 1.2rem;
-
-            color: var(--accent-color);
-
-            margin-bottom: 1rem;
-
-            letter-spacing: 3px;
-
-            text-transform: uppercase;
-
-            opacity: 0;
-
-            transform: translateY(20px);
-
-            animation: fadeInUp 1s forwards 0.2s;
-
-        }
-
-       
-
-        .hero-title {
-
-            font-size: 5rem;
-
-            line-height: 1.1;
-
-            margin-bottom: 1.5rem;
-
-            color: var(--dark-accent);
-
-            opacity: 0;
-
-            transform: translateY(20px);
-
-            animation: fadeInUp 1s forwards 0.4s;
-
-        }
-
-       
-
-        .hero-description {
-
-            font-size: 1.1rem;
-
-            margin-bottom: 2.5rem;
-
-            font-weight: 300;
-
-            max-width: 500px;
-
-            opacity: 0;
-
-            transform: translateY(20px);
-
-            animation: fadeInUp 1s forwards 0.6s;
-
-        }
-
-       
-
-        .cta-button {
-
-            background-color: var(--primary-color);
-
-            color: white;
-
-            border: none;
-
-            padding: 15px 40px;
-
-            font-size: 0.9rem;
-
-            letter-spacing: 2px;
-
-            text-transform: uppercase;
-
-            border-radius: 0;
-
-            position: relative;
-
-            overflow: hidden;
-
-            opacity: 0;
-
-            transform: translateY(20px);
-
-            animation: fadeInUp 1s forwards 0.8s;
-
-        }
-
-       
-
-        .cta-button::before {
-
-            content: '';
-
-            position: absolute;
-
-            top: 0;
-
-            left: -100%;
-
-            width: 100%;
-
-            height: 100%;
-
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-
-            transition: left 0.7s;
-
-        }
-
-       
-
-        .cta-button:hover {
-
-            background-color: var(--dark-accent);
-
-            transform: translateY(-3px);
-
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-
-        }
-
-       
-
-        .cta-button:hover::before {
-
-            left: 100%;
-
-        }
-
-       
-
-        .hero-image-container {
-
-            position: relative;
-
-            width: 45%;
-
-            height: 80%;
-
-            opacity: 0;
-
-            transform: translateX(20px);
-
-            animation: fadeInRight 1s forwards 1s;
-
-        }
-
-       
-
-        .hero-image {
-
-            width: 100%;
-
-            height: 100%;
-
-            background: url('https://placehold.co/800x1000') center/cover no-repeat;
-
-            border-radius: 5px;
-
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
-
-            transition: transform 0.5s ease;
-
-        }
-
-       
-
-        .hero-image:hover {
-
-            transform: scale(1.02);
-
-        }
-
-       
-
-        .floating-elements {
-
-            position: absolute;
-
-            top: 0;
-
-            left: 0;
-
-            width: 100%;
-
-            height: 100%;
-
-            pointer-events: none;
-
-        }
-
-       
-
-        .floating-element {
-
-            position: absolute;
-
-            background-color: var(--accent-color);
-
-            opacity: 0.1;
-
-            border-radius: 50%;
-
-        }
-
-       
-
-        .floating-element:nth-child(1) {
-
-            width: 300px;
-
-            height: 300px;
-
-            top: -150px;
-
-            left: -150px;
-
-        }
-
-       
-
-        .floating-element:nth-child(2) {
-
-            width: 200px;
-
-            height: 200px;
-
-            bottom: -100px;
-
-            right: 10%;
-
-        }
-
-       
-
-        .floating-element:nth-child(3) {
-
-            width: 150px;
-
-            height: 150px;
-
-            top: 20%;
-
-            right: -75px;
-
-        }
-
-       
-
-        .scroll-indicator {
-
-            position: absolute;
-
-            bottom: 40px;
-
-            left: 50%;
-
-            transform: translateX(-50%);
-
-            display: flex;
-
-            flex-direction: column;
-
-            align-items: center;
-
-            opacity: 0;
-
-            animation: fadeIn 1s forwards 1.5s;
-
-        }
-
-       
-
-        .scroll-text {
-
-            font-size: 0.8rem;
-
-            letter-spacing: 2px;
-
-            text-transform: uppercase;
-
-            margin-bottom: 10px;
-
-            color: var(--primary-color);
-
-        }
-
-       
-
-        .scroll-icon {
-
-            width: 30px;
-
-            height: 50px;
-
-            border: 2px solid var(--primary-color);
-
-            border-radius: 15px;
-
-            position: relative;
-
-        }
-
-       
-
-        .scroll-icon::before {
-
-            content: '';
-
-            position: absolute;
-
-            top: 8px;
-
-            left: 50%;
-
-            width: 6px;
-
-            height: 6px;
-
-            background-color: var(--primary-color);
-
-            border-radius: 50%;
-
-            transform: translateX(-50%);
-
-            animation: scrollDown 2s infinite;
-
-        }
-
-       
-
-        /* Featured Products */
-
-        .featured-products {
-
-            padding: 8rem 0;
-
-            background-color: white;
-
-            position: relative;
-
-        }
-
-       
-
-        .product-grid {
-
-            display: grid;
-
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-
-            gap: 3rem;
-
-            margin-top: 4rem;
-
-        }
-
-       
-
-        .product-card {
-
-            position: relative;
-
-            display: flex;
-
-            flex-direction: column;
-
-            background-color: var(--secondary-color);
-
-            border-radius: 0;
-
-            overflow: hidden;
-
-            transition: transform var(--transition-medium), box-shadow var(--transition-medium);
-
-            height: 100%;
-
-        }
-
-       
-
-        .product-card:hover {
-
-            transform: translateY(-10px);
-
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-
-        }
-
-       
-
-        .product-image {
-
-            position: relative;
-
-            height: 350px;
-
-            overflow: hidden;
-
-        }
-
-       
-
-        .product-image img {
-
-            width: 100%;
-
-            height: 100%;
-
-            object-fit: cover;
-
-            transition: transform 0.8s ease;
-
-        }
-
-       
-
-        .product-card:hover .product-image img {
-
-            transform: scale(1.1);
-
-        }
-
-       
-
-        .product-overlay {
-
-            position: absolute;
-
-            top: 15px;
-
-            right: 15px;
-
-            background-color: rgba(255, 255, 255, 0.9);
-
-            padding: 5px 15px;
-
-            border-radius: 20px;
-
-            font-size: 0.8rem;
-
-            font-weight: 500;
-
-            letter-spacing: 1px;
-
-        }
-
-       
-
-        .product-actions {
-
-            position: absolute;
-
-            bottom: 0;
-
-            left: 0;
-
-            width: 100%;
-
-            display: flex;
-
-            justify-content: center;
-
-            padding: 1rem;
-
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
-
-            opacity: 0;
-
-            transform: translateY(20px);
-
-            transition: opacity var(--transition-medium), transform var(--transition-medium);
-
-        }
-
-       
-
-        .product-card:hover .product-actions {
-
-            opacity: 1;
-
-            transform: translateY(0);
-
-        }
-
-       
-
-        .product-action-btn {
-
-            background-color: white;
-
-            color: var(--primary-color);
-
-            border: none;
-
-            width: 40px;
-
-            height: 40px;
-
-            border-radius: 50%;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            margin: 0 5px;
-
-            transition: all var(--transition-fast);
-
-        }
-
-       
-
-        .product-action-btn:hover {
-
-            background-color: var(--primary-color);
-
-            color: white;
-
-            transform: translateY(-3px);
-
-        }
-
-       
-
-        .product-info {
-
-            padding: 1.5rem;
-
-            display: flex;
-
-            flex-direction: column;
-
-            flex-grow: 1;
-
-        }
-
-       
-
-        .product-category {
-
-            font-size: 0.8rem;
-
-            text-transform: uppercase;
-
-            letter-spacing: 1px;
-
-            color: var(--accent-color);
-
-            margin-bottom: 0.5rem;
-
-        }
-
-       
-
-        .product-card h3 {
-
-            font-family: var(--font-subheading);
-
-            font-size: 1.5rem;
-
-            margin-bottom: 0.8rem;
-
-            transition: color var(--transition-fast);
-
-        }
-
-       
-
-        .product-card:hover h3 {
-
-            color: var(--primary-color);
-
-        }
-
-       
-
-        .product-card p {
-
-            font-size: 0.9rem;
-
-            margin-bottom: 1.5rem;
-
-            color: #666;
-
-            flex-grow: 1;
-
-        }
-
-       
-
-        .product-details {
-
-            display: flex;
-
-            align-items: center;
-
-            margin-bottom: 1rem;
-
-            font-size: 0.8rem;
-
-            color: #888;
-
-        }
-
-       
-
-        .separator {
-
-            margin: 0 0.5rem;
-
-        }
-
-       
-
-        .product-bottom {
-
-            display: flex;
-
-            justify-content: space-between;
-
-            align-items: center;
-
-        }
-
-       
-
-        .price {
-
-            font-size: 1.2rem;
-
-            font-weight: 500;
-
-            color: var(--dark-accent);
-
-        }
-
-       
-
-        .add-to-cart {
-
-            background-color: transparent;
-
-            border: 1px solid var(--primary-color);
-
-            color: var(--primary-color);
-
-            padding: 10px 20px;
-
-            font-size: 0.8rem;
-
-            letter-spacing: 1px;
-
-            text-transform: uppercase;
-
-            border-radius: 0;
-
-            transition: all var(--transition-fast);
-
-        }
-
-       
-
-        .add-to-cart:hover {
-
-            background-color: var(--primary-color);
-
-            color: white;
-
-        }
-
-       
-
-        /* Collection Showcase */
-
-        .collection-showcase {
-
-            padding: 8rem 0;
-
-            background-color: #f9f6f3;
-
-            position: relative;
-
-            overflow: hidden;
-
-        }
-
-       
-
-        .collection-bg {
-
-            position: absolute;
-
-            top: 0;
-
-            left: 0;
-
-            width: 100%;
-
-            height: 100%;
-
-            background: radial-gradient(circle at 70% 50%, rgba(212, 181, 158, 0.1) 0%, rgba(212, 181, 158, 0) 70%);
-
-            z-index: 0;
-
-        }
-
-       
-
-        .collection-content {
-
-            position: relative;
-
-            z-index: 1;
-
-        }
-
-       
-
-        .collection-text {
-
-            text-align: center;
-
-            max-width: 700px;
-
-            margin: 0 auto 5rem;
-
-        }
-
-       
-
-        .collection-text h2 {
-
-            font-size: 3rem;
-
-            color: var(--dark-accent);
-
-            margin-bottom: 1.5rem;
-
-        }
-
-       
-
-        .collection-text p {
-
-            font-size: 1.1rem;
-
-            color: #666;
-
-        }
-
-       
-
-        .collection-slider {
-
-            position: relative;
-
-            width: 100%;
-
-            overflow: hidden;
-
-        }
-
-       
-
-        .swiper-container {
-
-            width: 100%;
-
-            padding-bottom: 50px;
-
-        }
-
-       
-
-        .collection-slide {
-
-            position: relative;
-
-            height: 500px;
-
-            overflow: hidden;
-
-            border-radius: 5px;
-
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-
-            transition: transform 0.5s ease;
-
-        }
-
-       
-
-        .collection-slide:hover {
-
-            transform: translateY(-10px);
-
-        }
-
-       
-
-        .collection-slide img {
-
-            width: 100%;
-
-            height: 100%;
-
-            object-fit: cover;
-
-            transition: transform 0.8s ease;
-
-        }
-
-       
-
-        .collection-slide:hover img {
-
-            transform: scale(1.05);
-
-        }
-
-       
-
-        .collection-info {
-
-            position: absolute;
-
-            bottom: 0;
-
-            left: 0;
-
-            width: 100%;
-
-            padding: 2rem;
-
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
-
-            color: white;
-
-        }
-
-       
-
-        .collection-info h3 {
-
-            font-family: var(--font-subheading);
-
-            font-size: 1.8rem;
-
-            margin-bottom: 0.5rem;
-
-        }
-
-       
-
-        .collection-info p {
-
-            font-size: 0.9rem;
-
-            opacity: 0.9;
-
-            margin-bottom: 1rem;
-
-        }
-
-       
-
-        .collection-link {
-
-            font-size: 0.8rem;
-
-            text-transform: uppercase;
-
-            letter-spacing: 1px;
-
-            color: var(--accent-color);
-
-            display: inline-flex;
-
-            align-items: center;
-
-        }
-
-       
-
-        .collection-link i {
-
-            margin-left: 5px;
-
-            transition: transform 0.3s ease;
-
-        }
-
-       
-
-        .collection-link:hover i {
-
-            transform: translateX(5px);
-
-        }
-
-       
-
-        .swiper-pagination {
-
-            position: absolute;
-
-            bottom: 0;
-
-        }
-
-       
-
-        .swiper-pagination-bullet {
-
-            width: 10px;
-
-            height: 10px;
-
-            background-color: var(--primary-color);
-
-            opacity: 0.3;
-
-        }
-
-       
-
-        .swiper-pagination-bullet-active {
-
-            opacity: 1;
-
-            background-color: var(--primary-color);
-
-        }
-
-       
-
-        .swiper-button-next, .swiper-button-prev {
-
-            color: var(--primary-color);
-
-        }
-
-       
-
-        /* 3D Product Showcase */
-
-        .product-3d-showcase {
-
-            padding: 8rem 0;
-
-            background-color: white;
-
-            position: relative;
-
-        }
-
-       
-
-        .showcase-content {
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: space-between;
-
-            gap: 5rem;
-
-        }
-
-       
-
-        .showcase-text {
-
-            flex: 1;
-
-        }
-
-       
-
-        .showcase-text h2 {
-
-            font-size: 3rem;
-
-            color: var(--dark-accent);
-
-            margin-bottom: 1.5rem;
-
-        }
-
-       
-
-        .showcase-text p {
-
-            font-size: 1.1rem;
-
-            color: #666;
-
-            margin-bottom: 2rem;
-
-        }
-
-       
-
-        .showcase-features {
-
-            margin-bottom: 2rem;
-
-        }
-
-       
-
-        .showcase-feature {
-
-            display: flex;
-
-            align-items: flex-start;
-
-            margin-bottom: 1rem;
-
-        }
-
-       
-
-        .feature-icon {
-
-            color: var(--primary-color);
-
-            font-size: 1.2rem;
-
-            margin-right: 1rem;
-
-            margin-top: 0.2rem;
-
-        }
-
-       
-
-        .feature-text h4 {
-
-            font-family: var(--font-subheading);
-
-            font-size: 1.2rem;
-
-            margin-bottom: 0.3rem;
-
-        }
-
-       
-
-        .feature-text p {
-
-            font-size: 0.9rem;
-
-            margin-bottom: 0;
-
-        }
-
-       
-
-        .showcase-3d {
-
-            flex: 1;
-
-            height: 500px;
-
-            position: relative;
-
-        }
-
-       
-
-        .canvas-container {
-
-            width: 100%;
-
-            height: 100%;
-
-            background-color: var(--secondary-color);
-
-            border-radius: 5px;
-
-            overflow: hidden;
-
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-
-        }
-
-       
-
-        .canvas-placeholder {
-
-            width: 100%;
-
-            height: 100%;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            background: url('https://placehold.co/600x600') center/cover no-repeat;
-
-        }
-
-       
-
-        .rotate-hint {
-
-            position: absolute;
-
-            bottom: 20px;
-
-            left: 50%;
-
-            transform: translateX(-50%);
-
-            background-color: rgba(255, 255, 255, 0.9);
-
-            padding: 10px 20px;
-
-            border-radius: 20px;
-
-            font-size: 0.8rem;
-
-            display: flex;
-
-            align-items: center;
-
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-
-        }
-
-       
-
-        .rotate-hint i {
-
-            margin-right: 8px;
-
-            animation: rotate 2s infinite linear;
-
-        }
-
-       
-
-        /* Features */
-
-        .features {
-
-            padding: 8rem 0;
-
-            background-color: var(--secondary-color);
-
-            position: relative;
-
-        }
-
-       
-
-        .features-grid {
-
-            display: grid;
-
-            grid-template-columns: repeat(3, 1fr);
-
-            gap: 3rem;
-
-            margin-top: 4rem;
-
-        }
-
-       
-
-        .feature-card {
-
-            text-align: center;
-
-            padding: 3rem 2rem;
-
-            background-color: white;
-
-            border-radius: 5px;
-
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-
-            transition: transform var(--transition-medium), box-shadow var(--transition-medium);
-
-        }
-
-       
-
-        .feature-card:hover {
-
-            transform: translateY(-10px);
-
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-
-        }
-
-       
-
-        .feature-card i {
-
-            font-size: 2.5rem;
-
-            color: var(--primary-color);
-
-            margin-bottom: 1.5rem;
-
-            transition: transform var(--transition-medium);
-
-        }
-
-       
-
-        .feature-card:hover i {
-
-            transform: scale(1.1);
-
-        }
-
-       
-
-        .feature-card h3 {
-
-            font-family: var(--font-subheading);
-
-            font-size: 1.5rem;
-
-            margin-bottom: 1rem;
-
-            color: var(--dark-accent);
-
-        }
-
-       
-
-        .feature-card p {
-
-            font-size: 0.9rem;
-
-            color: #666;
-
-        }
-
-       
-
-        /* Newsletter */
-
-        .newsletter {
-
-            padding: 8rem 0;
-
-            background-color: var(--primary-color);
-
-            color: white;
-
-            text-align: center;
-
-            position: relative;
-
-            overflow: hidden;
-
-        }
-
-       
-
-        .newsletter-bg {
-
-            position: absolute;
-
-            top: 0;
-
-            left: 0;
-
-            width: 100%;
-
-            height: 100%;
-
-            background: radial-gradient(circle at 30% 50%, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
-
-            z-index: 0;
-
-        }
-
-       
-
-        .newsletter-content {
-
-            position: relative;
-
-            z-index: 1;
-
-            max-width: 700px;
-
+        
+        .container {
+            max-width: var(--container-max);
             margin: 0 auto;
-
-        }
-
-       
-
-        .newsletter h2 {
-
-            font-size: 3rem;
-
-            margin-bottom: 1.5rem;
-
-        }
-
-       
-
-        .newsletter p {
-
-            font-size: 1.1rem;
-
-            max-width: 600px;
-
-            margin: 0 auto 3rem;
-
-            opacity: 0.9;
-
-        }
-
-       
-
-        .newsletter-form {
-
-            display: flex;
-
-            max-width: 500px;
-
-            margin: 0 auto;
-
+            padding: 0 2rem;
             position: relative;
-
         }
-
-       
-
-        .newsletter-form input {
-
-            flex-grow: 1;
-
-            padding: 15px 20px;
-
-            border: none;
-
-            border-radius: 0;
-
-            font-family: var(--font-body);
-
-            font-size: 1rem;
-
+        
+        .section {
+            padding: var(--section-spacing) 0;
+            position: relative;
         }
-
-       
-
-        .newsletter-form button {
-
-            background-color: var(--dark-accent);
-
-            color: white;
-
-            border: none;
-
-            padding: 0 30px;
-
-            font-size: 0.9rem;
-
-            letter-spacing: 1px;
-
-            text-transform: uppercase;
-
-            transition: all var(--transition-fast);
-
-        }
-
-       
-
-        .newsletter-form button:hover {
-
-            background-color: var(--accent-color);
-
-            color: var(--text-dark);
-
-        }
-
-       
-
-        /* Footer */
-
-        footer {
-
-            background-color: #2c2420;
-
-            color: #e0d8d2;
-
-            padding: 6rem 0 2rem;
-
-        }
-
-       
-
-        .footer-content {
-
-            display: grid;
-
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-
-            gap: 4rem;
-
-        }
-
-       
-
-        .footer-logo {
-
-            font-family: var(--font-heading);
-
-            font-size: 2rem;
-
-            letter-spacing: 3px;
-
-            color: white;
-
-            margin-bottom: 1.5rem;
-
-        }
-
-       
-
-        .footer-about p {
-
-            font-size: 0.9rem;
-
+        
+        .section-title {
+            font-size: clamp(2rem, 5vw, 3.5rem);
             margin-bottom: 2rem;
-
-            opacity: 0.8;
-
-            line-height: 1.8;
-
-        }
-
-       
-
-        .footer-social {
-
-            display: flex;
-
-            gap: 1rem;
-
-        }
-
-       
-
-        .social-icon {
-
-            width: 40px;
-
-            height: 40px;
-
-            border-radius: 50%;
-
-            background-color: rgba(255, 255, 255, 0.1);
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            transition: all var(--transition-fast);
-
-        }
-
-       
-
-        .social-icon:hover {
-
-            background-color: var(--accent-color);
-
-            color: var(--text-dark);
-
-            transform: translateY(-3px);
-
-        }
-
-       
-
-        .footer-section h3 {
-
-            font-family: var(--font-subheading);
-
-            font-size: 1.2rem;
-
-            margin-bottom: 1.5rem;
-
-            color: white;
-
             position: relative;
-
-            padding-bottom: 0.8rem;
-
+            display: inline-block;
+            line-height: 1.2;
         }
-
-       
-
-        .footer-section h3::after {
-
+        
+        .section-title:after {
             content: '';
-
             position: absolute;
-
-            width: 40px;
-
+            left: 0;
+            bottom: -12px;
+            width: 60px;
             height: 2px;
-
-            background-color: var(--accent-color);
-
-            bottom: 0;
-
+            background: var(--accent);
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        .text-center .section-title:after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* Cursor */
+        .cursor {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            opacity: 0.3;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50);
+            transition: 
+                width 0.3s ease,
+                height 0.3s ease,
+                background-color 0.3s ease;
+            mix-blend-mode: multiply;
+        }
+        
+        .cursor.active {
+            width: 70px;
+            height: 70px;
+            opacity: 0.1;
+        }
+        
+        .cursor.click {
+            width: 40px;
+            height: 40px;
+            opacity: 0.2;
+        }
+        
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
             left: 0;
-
+            width: 100%;
+            padding: 1.5rem 0;
+            z-index: 1000;
+            transition: all 0.6s ease;
         }
-
-       
-
-        .footer-links {
-
+        
+        .nav.scrolled {
+            background-color: rgba(246, 244, 240, 0.96);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-sm);
+            padding: 0.8rem 0;
+        }
+        
+        .nav.active {
+            background-color: var(--secondary);
+        }
+        
+        .nav-container {
             display: flex;
-
-            flex-direction: column;
-
-        }
-
-       
-
-        .footer-link {
-
-            margin-bottom: 1rem;
-
-            font-size: 0.9rem;
-
-            opacity: 0.8;
-
-            transition: all var(--transition-fast);
-
-            display: flex;
-
-            align-items: center;
-
-        }
-
-       
-
-        .footer-link i {
-
-            margin-right: 10px;
-
-            font-size: 0.8rem;
-
-        }
-
-       
-
-        .footer-link:hover {
-
-            opacity: 1;
-
-            color: var(--accent-color);
-
-            transform: translateX(5px);
-
-        }
-
-       
-
-        .footer-contact p {
-
-            display: flex;
-
-            align-items: flex-start;
-
-            margin-bottom: 1rem;
-
-            font-size: 0.9rem;
-
-            opacity: 0.8;
-
-        }
-
-       
-
-        .footer-contact i {
-
-            margin-right: 15px;
-
-            margin-top: 5px;
-
-        }
-
-       
-
-        .footer-bottom {
-
-            margin-top: 4rem;
-
-            padding-top: 2rem;
-
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-
-            display: flex;
-
             justify-content: space-between;
-
             align-items: center;
-
+            position: relative;
         }
-
-       
-
-        .copyright {
-
-            font-size: 0.8rem;
-
-            opacity: 0.7;
-
+        
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            letter-spacing: 2px;
+            color: var(--primary);
+            position: relative;
+            z-index: 1001;
         }
-
-       
-
-        .footer-bottom-links {
-
+        
+        .nav-links {
             display: flex;
-
+            gap: 2.5rem;
+        }
+        
+        .nav-link {
+            font-size: 0.85rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-weight: 500;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--primary);
+            transition: width var(--transition);
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        
+        .nav-icon {
+            font-size: 1.1rem;
+            color: var(--primary);
+            position: relative;
+        }
+        
+        .nav-icon:hover {
+            transform: translateY(-2px);
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: var(--primary);
+            color: white;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.6rem;
+            font-weight: 600;
+        }
+        
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.4rem;
+            color: var(--primary);
+            z-index: 1001;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            min-height: 800px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #f3f0eb 0%, #e8e4dd 100%);
+            z-index: -1;
+        }
+        
+        .hero-content {
+            display: flex;
+            height: 100%;
+            align-items: center;
+            justify-content: space-between;
+            padding: 100px 5% 0;
+        }
+        
+        .hero-text {
+            max-width: 600px;
+            padding right: 3rem;
+            z-index: 1;
+        }
+        
+        .hero-subtitle {
+            font-family: var(--font-subheading);
+            font-size: 1.1rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            transform: translateY(20px);
+            opacity: 0;
+            animation: fadeIn 0.8s forwards 0.4s;
+        }
+        
+        .hero-title {
+            font-size: clamp(3rem, 7vw, 5.5rem);
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            color: var(--dark);
+            transform: translateY(30px);
+            opacity: 0;
+            animation: fadeIn 1s forwards 0.6s;
+        }
+        
+        .hero-description {
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+            font-weight: 300;
+            max-width: 500px;
+            transform: translateY(20px);
+            opacity: 0;
+            animation: fadeIn 1s forwards 0.8s;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 16px 42px;
+            font-size: 0.9rem;
+                    letter-spacing: 1.5px;
+            text-transform: uppercase;
+            border-radius: 0;
+            position: relative;
+            overflow: hidden;
+            transform: translateY(20px);
+            opacity: 0;
+            animation: fadeIn 1s forwards 1s;
+        }
+        
+        .btn:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.7s ease;
+        }
+        
+        .btn:hover {
+            background: var(--dark);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .btn:hover:before {
+            left: 100;
+        }
+        
+        .hero-image {
+            position: relative;
+            width: 50%;
+            height: 80%;
+            opacity: 0;
+            transform: translateX(40px);
+            animation: fadeInRight 1s forwards 1.2s;
+        }
+        
+        .hero-image-inner {
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1606222748467-0c4c8f427adb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80') center/cover no-repeat;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            transition: transform 0.6s ease;
+        }
+        
+        .hero-image-inner:hover {
+            transform: scale(1.02);
+        }
+        
+        .hero-image-deco {
+            position: absolute;
+            background: var(--accent);
+            opacity: 0.2;
+            border-radius: 50%;
+            z-index: -1;
+        }
+        
+        .hero-image-deco-1 {
+            width: 280px;
+            height: 280px;
+            top: -140px;
+            left: -140px;
+        }
+        
+        .hero-image-deco-2 {
+            width: 180px;
+            height: 180px;
+            bottom: -80px;
+            right: -80px;
+        }
+        
+        .scroll-hint {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: fadeIn 1s ease 1.6s forwards;
+            opacity: 0;
+        }
+        
+        .scroll-hint-text {
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        .scroll-hint-icon {
+            width: 2px;
+            height: 40px;
+            background: var(--primary);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .scroll-hint-icon:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 20px;
+            background: white;
+            animation: scroll 2s infinite;
+        }
+        
+        /* Featured Products */
+        .products {
+            padding: var(--section-spacing) 0;
+            background: white;
+        }
+        
+        .products-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 5rem;
+        }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
             gap: 2rem;
-
+            margin-top: 4rem;
         }
-
-       
-
-        .footer-bottom-link {
-
-            font-size: 0.8rem;
-
-            opacity: 0.7;
-
-            transition: all var(--transition-fast);
-
+        
+        .product-card {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            background: var(--secondary);
+            transition: all var(--transition);
+            overflow: hidden;
         }
-
-       
-
-        .footer-bottom-link:hover {
-
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .product-media {
+            position: relative;
+            height: 420px;
+            overflow: hidden;
+        }
+        
+        .product-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1.2s ease;
+        }
+        
+        .product-card:hover .product-image {
+            transform: scale(1.05);
+        }
+        
+        .product-overlay {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: rgba(255,255,255,0.9);
+            padding: 0.3rem 1.2rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            color: var(--text);
+        }
+        
+        .product-actions {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding: 1.5rem;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all var(--transition);
+        }
+        
+        .product-card:hover .product-actions {
             opacity: 1;
-
-            color: var(--accent-color);
-
+            transform: translateY(0);
         }
-
-       
-
+        
+        .product-action-btn {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: white;
+            color: var(--primary);
+            border: none;
+            margin: 0 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all var(--transition);
+        }
+        
+        .product-action-btn:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .product-info {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        
+        .product-category {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent);
+            margin-bottom: 0.8rem;
+        }
+        
+        .product-title {
+            font-family: var(--font-subheading);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            transition: color var(--transition);
+        }
+        
+        .product-card:hover .product-title {
+            color: var(--primary);
+        }
+        
+        .product-desc {
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+            color: #666;
+            flex-grow: 1;
+        }
+        
+        .product-meta {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            font-size: 0.85rem;
+            color: #888;
+        }
+        
+        .product-meta-separator {
+            margin: 0 0.5rem;
+        }
+        
+        .product-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: var(--border);
+        }
+        
+        .product-price {
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: var(--dark);
+        }
+        
+        .product-price.sale {
+            color: #a62121;
+            text-decoration: line-through;
+            margin-right: 0.5rem;
+        }
+        
+        .product-price-final {
+            color: var(--dark);
+            font-weight: 600;
+        }
+        
+        .product-add-to-cart {
+            background: transparent;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            padding: 0.8rem 1.8rem;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all var(--transition);
+        }
+        
+        .product-add-to-cart:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        /* Collection Showcase */
+        .collections {
+            padding: var(--section-spacing) 0;
+            background: var(--secondary);
+        }
+        
+        .collections-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 70% 50%, rgba(216, 200, 184, 0.1) 0%, rgba(216, 200, 184, 0) 70%);
+            z-index: 0;
+        }
+        
+        .collections-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .collections-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 5rem;
+        }
+        
+        .collections-slider {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+        
+        .swiper {
+            width: 100%;
+            padding-bottom: 50px;
+        }
+        
+        .collection-slide {
+            height: 520px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 4px;
+            box-shadow: var(--shadow-md);
+            transition: transform 0.6s ease;
+        }
+        
+        .collection-slide:hover {
+            transform: translateY(-10px);
+        }
+        
+        .collection-slide:hover .collection-image {
+            transform: scale(1.05);
+        }
+        
+        .collection-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1s ease;
+        }
+        
+        .collection-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 2.5rem;
+            background: linear-gradient(to top, rgba 0,0,0,0.7), transparent);
+            color: white;
+        }
+        
+        .collection-info-title {
+            font-family: var(--font-subheading);
+            font-size: 1.8rem;
+            margin-bottom: 0.6rem;
+        }
+        
+        .collection-info-desc {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+        }
+        
+        .collection-link {
+            display: inline-flex;
+            align-items: center;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent);
+        }
+        
+        .collection-link i {
+            margin-left: 8px;
+            transition: transform 0.4s ease;
+        }
+        
+        .collection-link:hover i {
+            transform: translateX(5px);
+        }
+        
+        .swiper-pagination-bullet {
+            width: 12px;
+            height: 12px;
+            background: var(--primary);
+            opacity: 0.3;
+        }
+        
+        .swiper-pagination-bullet-active {
+            opacity: 1;
+        }
+        
+        .swiper-button-next, .swiper-button-prev {
+            color: var(--primary);
+        }
+        
+        /* Craftsmanship */
+        .craft {
+            padding: var(--section-spacing) 0;
+            background: white;
+        }
+        
+        .craft-container {
+            display: flex;
+            align-items: center;
+            gap: 5rem;
+        }
+        
+        .craft-content {
+            flex: 1;
+        }
+        
+        .craft-features {
+            margin-bottom: 3rem;
+        }
+        
+        .craft-feature {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: var(--border);
+        }
+        
+        .craft-feature:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .craft-feature-icon {
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin right: 1.5rem;
+            margin-top: 0.2rem;
+        }
+        
+        .craft-feature-content h4 {
+            font-family: var(--font-subheading);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .craft-feature-content p {
+            font-size: 0.95rem;
+        }
+        
+        .craft-media {
+            flex: 1;
+            height: 500px;
+            position: relative;
+        }
+        
+        .craft-media-canvas {
+            width: 100%;
+            height: 100%;
+            background: var(--secondary);
+            border-radius: 4px;
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+        }
+        
+        .craft-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: url('https://images.unsplash.com/photo-1583947581924-dd1d0f1bc916?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80') center/cover no-repeat;
+        }
+        
+        .craft-hint {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255,255,255,0.9);
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            box-shadow: var(--shadow-sm);
+            animation: float 4s ease-in-out infinite;
+        }
+        
+        .craft-hint i {
+            margin-right: 0.8rem;
+            animation: rotate 4s linear infinite;
+        }
+        
+        /* Values */
+        .values {
+            padding: var(--section-spacing) 0;
+            background: var(--secondary);
+        }
+        
+        .values-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 5rem;
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+        
+        .value-card {
+            text-align: center;
+            padding: 3.5rem 2.5rem;
+            background: white;
+            border-radius: 4px;
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition);
+        }
+        
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .value-card-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 2rem;
+            transition: transform 0.6s ease;
+        }
+        
+        .value-card:hover .value-card-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+        
+        .value-card-title {
+            font-family: var(--font-subheading);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .value-card-desc {
+            font-size: 0.95rem;
+            color: #666;
+        }
+        
+        /* Newsletter */
+        .newsletter {
+            padding: var(--section-spacing) 0;
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .newsletter-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 50%, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+            z-index: 0;
+        }
+        
+        .newsletter-content {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .newsletter-title {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 1.5rem;
+        }
+        
+        .newsletter-desc {
+            font-size: 1.15rem;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .newsletter-input {
+            flex: 1;
+            padding: 1.1rem 1.5rem;
+            border: none;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            color: var(--text);
+        }
+        
+        .newsletter-input:focus {
+            outline: none;
+        }
+        
+        .newsletter-submit {
+            background: var(--dark);
+            color: white;
+            border: none;
+            padding: 0 2.5rem;
+            font-size: 0.9rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: background var(--transition);
+        }
+        
+        .newsletter-submit:hover {
+            background: #26201c;
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--dark);
+            color: #e0d8d2;
+            padding: 6rem 0 3rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 4rem;
+            margin-bottom: 5rem;
+        }
+        
+        .footer-about {
+            max-width: 350px;
+        }
+        
+        .footer-logo {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            letter-spacing: 3px;
+            color: white;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
+        
+        .footer-about-text {
+            font-size: 0.95rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.8;
+            line-height: 1.8;
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-link {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all var(--transition);
+        }
+        
+        .social-link:hover {
+            background: var(--accent);
+            color: var(--dark);
+            transform: translateY(-3px);
+        }
+        
+        .footer-heading {
+            font-family: var(--font-subheading);
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            color: white;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+        
+        .footer-heading:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 1px;
+            background: var(--accent);
+        }
+        
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+        
+        .footer-link {
+            font-size: 0.95rem;
+            opacity: 0.8;
+            transition: all var(--transition);
+            display: flex;
+            align-items: center;
+        }
+        
+        .footer-link i {
+            margin-right: 0.8rem;
+            font-size: 0.8rem;
+        }
+        
+        .footer-link:hover {
+            opacity: 1;
+            color: var(--accent);
+            transform: translateX(5px);
+        }
+        
+        .footer-contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.2rem;
+            font-size: 0.95rem;
+            opacity: 0.8;
+        }
+        
+        .footer-contact-item i {
+            margin-right: 1rem;
+            margin-top: 0.4rem;
+        }
+        
+        .footer-bottom {
+            padding-top: 3rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .copyright {
+            font-size: 0.85rem;
+            opacity: 0.7;
+        }
+        
+        .footer-legal-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .footer-legal-link {
+            font-size: 0.85rem;
+            opacity: 0.7;
+            transition: all var(--transition);
+        }
+        
+        .footer-legal-link:hover {
+            opacity: 1;
+            color: var(--accent);
+        }
+        
         /* Animations */
-
         @keyframes fadeIn {
-
             from {
-
                 opacity: 0;
-
-            }
-
-            to {
-
-                opacity: 1;
-
-            }
-
-        }
-
-       
-
-        @keyframes fadeInUp {
-
-            from {
-
-                opacity: 0;
-
                 transform: translateY(20px);
-
             }
-
             to {
-
                 opacity: 1;
-
                 transform: translateY(0);
-
             }
-
         }
-
-       
-
+        
         @keyframes fadeInRight {
-
             from {
-
                 opacity: 0;
-
-                transform: translateX(20px);
-
+                transform: translateX(40px);
             }
-
             to {
-
                 opacity: 1;
-
                 transform: translateX(0);
-
             }
-
         }
-
-       
-
-        @keyframes scrollDown {
-
+        
+        @keyframes scroll {
             0% {
-
+                transform: translateY(0);
+                opacity: 0;
+            }
+            20% {
                 opacity: 1;
-
-                transform: translateX(-50%) translateY(0);
-
             }
-
-            75% {
-
+            90% {
+                transform: translateY(20px);
                 opacity: 0;
-
-                transform: translateX(-50%) translateY(20px);
-
             }
-
-            76% {
-
-                opacity: 0;
-
-                transform: translateX(-50%) translateY(0);
-
-            }
-
             100% {
-
-                opacity: 1;
-
-                transform: translateX(-50%) translateY(0);
-
+                transform: translateY(0);
+                opacity: 0;
             }
-
         }
-
-       
-
+        
         @keyframes rotate {
-
             from {
-
                 transform: rotate(0deg);
-
             }
-
             to {
-
                 transform: rotate(360deg);
-
             }
-
         }
-
-       
-
-        /* Responsive Design */
-
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0) translateX(-50%);
+            }
+            50% {
+                transform: translateY(-10px) translateX(-50%);
+            }
+            100% {
+                transform: translateY(0) translateX(-50%);
+            }
+        }
+        
+        /* Responsive */
         @media (max-width: 1200px) {
-
-            .hero-title {
-
-                font-size: 4rem;
-
-            }
-
-           
-
-            .showcase-content {
-
+            .craft-container {
                 flex-direction: column;
-
                 gap: 3rem;
-
             }
-
-           
-
-            .footer-content {
-
-                grid-template-columns: repeat(2, 1fr);
-
+            
+            .craft-media {
+                width: 100%;
             }
-
         }
-
-       
-
+        
         @media (max-width: 992px) {
-
             .nav-links {
-
-                display: none;
-
                 position: fixed;
-
                 top: 0;
-
                 left: 0;
-
                 width: 100%;
-
                 height: 100vh;
-
-                background-color: var(--secondary-color);
-
+                background: var(--secondary);
                 flex-direction: column;
-
                 justify-content: center;
-
                 align-items: center;
-
                 gap: 2rem;
-
-                z-index: 1;
-
+                z-index: 1000;
+                opacity: 0;
+                pointer-events: none;
+                transition: all 0.6s ease;
             }
-
-           
-
+            
             .nav-links.active {
-
-                display: flex;
-
+                opacity: 1;
+                pointer-events: all;
             }
-
-           
-
+            
             .menu-toggle {
-
                 display: block;
-
             }
-
-           
-
+            
             .hero-content {
-
                 flex-direction: column;
-
                 text-align: center;
-
-                padding-top: 6rem;
-
+                padding-top: 120px;
             }
-
-           
-
+            
             .hero-text {
-
+                max-width: 100%;
+                padding-right: 0;
                 margin-bottom: 3rem;
-
             }
-
-           
-
-            .hero-image-container {
-
+            
+            .hero-image {
                 width: 80%;
-
-                height: 50%;
-
             }
-
-           
-
-            .hero-title {
-
-                font-size: 3.5rem;
-
+            
+            .values-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 2rem;
             }
-
-           
-
-            .section-title {
-
-                font-size: 2.5rem;
-
-            }
-
-           
-
-            .features-grid {
-
-                grid-template-columns: repeat(2, 1fr);
-
-            }
-
         }
-
-       
-
+        
         @media (max-width: 768px) {
-
-            .hero-title {
-
-                font-size: 3rem;
-
+            .section {
+                padding: 80px 0;
             }
-
-           
-
+            
             .product-grid {
-
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             }
-
-           
-
-            .features-grid {
-
-                grid-template-columns: 1fr;
-
-            }
-
-           
-
+            
             .newsletter-form {
-
                 flex-direction: column;
-
                 gap: 1rem;
-
             }
-
-           
-
-            .newsletter-form input,
-
-            .newsletter-form button {
-
+            
+            .newsletter-input,
+            .newsletter-submit {
                 width: 100%;
-
             }
-
-           
-
-            .footer-content {
-
-                grid-template-columns: 1fr;
-
-                gap: 3rem;
-
-            }
-
-           
-
-            .footer-bottom {
-
-                flex-direction: column;
-
-                gap: 1rem;
-
-                text-align: center;
-
-            }
-
-        }
-
-       
-
-        @media (max-width: 576px) {
-
-            .hero-title {
-
-                font-size: 2.5rem;
-
-            }
-
-           
-
-            .hero-subtitle {
-
-                font-size: 1rem;
-
-            }
-
-           
-
-            .hero-description {
-
-                font-size: 1rem;
-
-            }
-
-           
-
-            .section-title {
-
-                font-size: 2rem;
-
-            }
-
-           
-
+            
             .collection-slide {
-
-                height: 400px;
-
+                height: 450px;
             }
-
         }
-
+        
+        @media (max-width: 576px) {
+            .hero {
+                min-height: 700px;
+            }
+            
+            .hero-title {
+                font-size: 3rem;
+            }
+            
+            .hero-description {
+                font-size: 1rem;
+            }
+            
+            .hero-image {
+                width: 100%;
+                height: 50%;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1.5rem;
+                text-align: center;
+            }
+            
+            .footer-legal-links {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+        }
     </style>
-
 </head>
-
 <body>
-
     <!-- Custom Cursor -->
-
-    <div class="custom-cursor"></div>
-
-   
-
+    <div class="cursor"></div>
+    
     <!-- Navigation -->
-
-    <nav class="nav-container">
-
-        <div class="nav-content">
-
-            <a href="#" class="logo">LUMINOUS</a>
-
+    <nav class="nav">
+        <div class="container nav-container">
+            <a href="#" class="logo">LUMINOUS LUX</a>
             <div class="nav-links">
-
                 <a href="#" class="nav-link">Home</a>
-
-                <a href="#" class="nav-link">Shop</a>
-
                 <a href="#" class="nav-link">Collections</a>
-
+                <a href="#" class="nav-link">Shop</a>
+                <a href="#" class="nav-link">Journal</a>
                 <a href="#" class="nav-link">About</a>
-
-                <a href="#" class="nav-link">Contact</a>
-
             </div>
-
             <div class="nav-actions">
-
                 <a href="#" class="nav-icon"><i class="fas fa-search"></i></a>
-
                 <a href="#" class="nav-icon"><i class="fas fa-user"></i></a>
-
                 <a href="#" class="nav-icon">
-
                     <i class="fas fa-shopping-bag"></i>
-
-                    <span class="cart-count">3</span>
-
+                    <span class="cart-count">0</span>
                 </a>
-
+                <button class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
-
-            <button class="menu-toggle">
-
-                <i class="fas fa-bars"></i>
-
-            </button>
-
         </div>
-
     </nav>
-
-   
-
+    
     <!-- Hero Section -->
-
     <section class="hero">
-
-        <div class="hero-bg"></div>
-
-        <div class="floating-elements">
-
-            <div class="floating-element"></div>
-
-            <div class="floating-element"></div>
-
-            <div class="floating-element"></div>
-
-        </div>
-
-        <div class="hero-content">
-
-            <div class="hero-text">
-
-                <h6 class="hero-subtitle">Artisan Crafted</h6>
-
-                <h1 class="hero-title">Illuminate Your Space</h1>
-
-                <p class="hero-description">Discover our collection of handcrafted luxury candles designed to transform your environment with exquisite scents and elegant aesthetics.</p>
-
-                <button class="cta-button">Explore Collection</button>
-
+        <div class="hero-canvas"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h6 class="hero-subtitle">Handcrafted Since 2012</h6>
+                    <h1 class="hero-title">Illuminate Your Space With Artisan Candles</h1>
+                    <p class="hero-description">Our premium soy wax candles are crafted with care, using only the finest ingredients to create lasting fragrances that transform any space.</p>
+                    <a href="#" class="btn">Explore Collections</a>
+                </div>
+                <div class="hero-image">
+                    <div class="hero-image-inner"></div>
+                    <div class="hero-image-deco hero-image-deco-1"></div>
+                    <div class="hero_image-deco hero-image-deco-2"></div>
+                </div>
             </div>
-
-            <div class="hero-image-container">
-
-                <div class="hero-image"></div>
-
+            <div class="scroll-hint">
+                <div class="scroll-hint-text">Scroll Down</div>
+                <div class="scroll-hint-icon"></div>
             </div>
-
         </div>
-
-        <div class="scroll-indicator">
-
-            <span class="scroll-text">Scroll Down</span>
-
-            <div class="scroll-icon"></div>
-
-        </div>
-
     </section>
-
-   
-
+    
     <!-- Featured Products -->
-
-    <section class="featured-products">
-
+    <section class="section products">
         <div class="container">
-
-            <div class="text-center">
-
-                <h2 class="section-title">Bestsellers</h2>
-
-                <p>Our most coveted fragrances, crafted with premium ingredients</p>
-
+            <div class="products-header text-center">
+                <h2 class="section-title">Our Creations</h2>
+                <p>Discover our signature collection of handcrafted candles, each with unique scents and premium materials that elevate your senses.</p>
             </div>
-
             <div class="product-grid">
-
+                <!-- Product 1 -->
                 <div class="product-card">
-
-                    <div class="product-image">
-
-                        <img src="https://placehold.co/400x600" alt="Midnight Jasmine Candle">
-
-                        <div class="product-overlay">
-
-                            <span class="burn-time">65 hours</span>
-
-                        </div>
-
+                    <div class="product-media">
+                        <img src="https://images.unsplash.com/photo-1606220926170-78e17eee8e44?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=720&q=80" alt="Amber & Moss Candle" class="product-image">
+                        <div class="product-overlay">Best Seller</div>
                         <div class="product-actions">
-
+                            <button class="product-action-btn"><i class="fas fa-search"></i></button>
                             <button class="product-action-btn"><i class="far fa-heart"></i></button>
-
-                            <button class="product-action-btn"><i class="fas fa-eye"></i></button>
-
                             <button class="product-action-btn"><i class="fas fa-shopping-cart"></i></button>
-
                         </div>
-
                     </div>
-
                     <div class="product-info">
-
-                        <span class="product-category">Floral Collection</span>
-
-                        <h3>Midnight Jasmine</h3>
-
-                        <p>A luxurious blend of night-blooming jasmine, Madagascar vanilla, and white musk. Notes of ylang-ylang and bergamot create an enchanting evening ambiance.</p>
-
-                        <div class="product-details">
-
-                            <span class="weight">350g</span>
-
-                            <span class="separator">•</span>
-
-                            <span class="wax-type">Soy Blend</span>
-
+                        <span class="product-category">Woody Scents</span>
+                        <h3 class="product-title">Amber & Moss</h3>
+                        <p class="product-desc">A warm, earthy blend of amber, vetiver, and oak moss with hints of spice and vanilla.</p>
+                        <div class="product-footer">
+                            <div>
+                                <span class="product-price">$42.00</span>
+                            </div>
+                            <button class="product-add-to-cart">Add to Cart</button>
                         </div>
-
-                        <div class="product-bottom">
-
-                            <span class="price">$58.00</span>
-
-                            <button class="add-to-cart">Add to Cart</button>
-
-                        </div>
-
                     </div>
-
                 </div>
-
-               
-
+                
+                <!-- Product 2 -->
                 <div class="product-card">
-
-                    <div class="product-image">
-
-                        <img src="https://placehold.co/400x600" alt="Amber & Sandalwood Candle">
-
-                        <div class="product-overlay">
-
-                            <span class="burn-time">70 hours</span>
-
-                        </div>
-
+                    <div class="product-media">
+                        <img src="https://images.unsplash.com/photo-1507914464560-61c8530ad005?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=720&q=80" alt="Lavender Fields Candle" class="product-image">
                         <div class="product-actions">
-
+                            <button class="product-action-btn"><i class="fas fa-search"></i></button>
                             <button class="product-action-btn"><i class="far fa-heart"></i></button>
-
-                            <button class="product-action-btn"><i class="fas fa-eye"></i></button>
-
                             <button class="product-action-btn"><i class="fas fa-shopping-cart"></i></button>
-
                         </div>
-
                     </div>
-
                     <div class="product-info">
-
-                        <span class="product-category">Woody Collection</span>
-
-                        <h3>Amber & Sandalwood</h3>
-
-                        <p>Rich notes of amber and sandalwood blend with warm vanilla and cedarwood. A sophisticated fragrance that creates a cozy, inviting atmosphere.</p>
-
-                        <div class="product-details">
-
-                            <span class="weight">400g</span>
-
-                            <span class="separator">•</span>
-
-                            <span class="wax-type">Coconut Blend</span>
-
+                        <span class="product-category">Floral Scents</span>
+                        <h3 class="product-title">Lavender Fields</h3>
+                        <p class="product-desc">Relaxing floral notes of French lavender blended with herbaceous undertones of rosemary.</p>
+                        <div class="product-footer">
+                            <div>
+                                <span class="product-price">$38.00</span>
+                            </div>
+                            <button class="product-add-to-cart">Add to Cart</button>
                         </div>
-
-                        <div class="product-bottom">
-
-                            <span class="price">$62.00</span>
-
-                            <button class="add-to-cart">Add to Cart</button>
-
-                        </div>
-
                     </div>
-
                 </div>
-
-               
-
+                
+                <!-- Product 3 -->
                 <div class="product-card">
-
-                    <div class="product-image">
-
-                        <img src="https://placehold.co/400x600" alt="Mediterranean Fig Candle">
-
-                        <div class="product-overlay">
-
-                            <span class="burn-time">60 hours</span>
-
-                        </div>
-
+                    <div class="product-media">
+                        <img src="https://images.unsplash.com/photo-1654869121817-edae0d5f390e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=720&q=80" alt="Sea Salt & Oak" class="product-image">
+                        <div class="product-overlay">New Arrival</div>
                         <div class="product-actions">
-
+                            <button class="product-action-btn"><i class="fas fa-search"></i></button>
                             <button class="product-action-btn"><i class="far fa-heart"></i></button>
-
-                            <button class="product-action-btn"><i class="fas fa-eye"></i></button>
-
                             <button class="product-action-btn"><i class="fas fa-shopping-cart"></i></button>
-
                         </div>
-
                     </div>
-
                     <div class="product-info">
-
-                        <span class="product-category">Fresh Collection</span>
-
-                        <h3>Mediterranean Fig</h3>
-
-                        <p>Sun-ripened figs blend with notes of bergamot and vetiver. This fresh, green scent evokes the essence of Mediterranean gardens in summer.</p>
-
-                        <div class="product-details">
-
-                            <span class="weight">320g</span>
-
-                            <span class="separator">•</span>
-
-                            <span class="wax-type">Beeswax Blend</span>
-
+                        <span class="product-category">Fresh Scents</span>
+                        <h3 class="product-title">Sea Salt & Oak</h3>
+                        <p class="product-desc">Crisp ocean air meets warm oak for a perfectly balanced coastal-inspired fragrance.</p>
+                        <div class="product-meta">
+                            <span>60hr+ Burn Time</span>
+                            <span class="product-meta-separator">•</span>
+                            <span>Soy Wax</span>
                         </div>
-
-                        <div class="product-bottom">
-
-                            <span class="price">$54.00</span>
-
-                            <button class="add-to-cart">Add to Cart</button>
-
+                        <div class="product-footer">
+                            <div>
+                                <span class="product-price sale">$45.00</span>
+                                <span class="product-price-final">$36.00</span>
+                            </div>
+                            <button class="product-add-to-cart">Add to Cart</button>
                         </div>
-
                     </div>
-
                 </div>
-
             </div>
-
         </div>
-
     </section>
-
-   
-
+    
     <!-- Collection Showcase -->
-
-    <section class="collection-showcase">
-
-        <div class="collection-bg"></div>
-
-        <div class="container collection-content">
-
-            <div class="collection-text">
-
-                <h2 class="section-title">Our Collections</h2>
-
-                <p>Explore our curated collections, each designed to evoke a distinct mood and atmosphere</p>
-
-            </div>
-
-            <div class="collection-slider">
-
-                <div class="swiper-container">
-
-                    <div class="swiper-wrapper">
-
-                        <div class="swiper-slide">
-
-                            <div class="collection-slide">
-
-                                <img src="https://placehold.co/800x800" alt="Botanical Collection">
-
-                                <div class="collection-info">
-
-                                    <h3>Botanical Collection</h3>
-
-                                    <p>Fresh, green scents inspired by nature's garden</p>
-
-                                    <a href="#" class="collection-link">Explore Collection <i class="fas fa-arrow-right"></i></a>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <div class="swiper-slide">
-
-                            <div class="collection-slide">
-
-                                <img src="https://placehold.co/800x800" alt="Noir Collection">
-
-                                <div class="collection-info">
-
-                                    <h3>Noir Collection</h3>
-
-                                    <p>Deep, mysterious fragrances for evening ambiance</p>
-
-                                    <a href="#" class="collection-link">Explore Collection <i class="fas fa-arrow-right"></i></a>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <div class="swiper-slide">
-
-                            <div class="collection-slide">
-
-                                <img src="https://placehold.co/800x800" alt="Coastal Collection">
-
-                                <div class="collection-info">
-
-                                    <h3>Coastal Collection</h3>
-
-                                    <p>Ocean-inspired scents that evoke seaside memories</p>
-
-                                    <a href="#" class="collection-link">Explore Collection <i class="fas fa-arrow-right"></i></a>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <div class="swiper-slide">
-
-                            <div class="collection-slide">
-
-                                <img src="https://placehold.co/800x800" alt="Spice Route Collection">
-
-                                <div class="collection-info">
-
-                                    <h3>Spice Route Collection</h3>
-
-                                    <p>Exotic fragrances inspired by ancient trade routes</p>
-
-                                    <a href="#" class="collection-link">Explore Collection <i class="fas fa-arrow-right"></i></a>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                    <div class="swiper-pagination"></div>
-
-                    <div class="swiper-button-next"></div>
-
-                    <div class="swiper-button-prev"></div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-   
-
-    <!-- 3D Product Showcase -->
-
-    <section class="product-3d-showcase">
-
+    <section class="section collections">
+        <div class="collections-bg"></div>
         <div class="container">
-
-            <div class="showcase-content">
-
-                <div class="showcase-text">
-
-                    <h2 class="section-title">Experience Our Craftsmanship</h2>
-
-                    <p>Each Luminous candle is meticulously crafted using traditional techniques and premium materials. Our commitment to quality ensures an exceptional sensory experience.</p>
-
-                   
-
-                    <div class="showcase-features">
-
-                        <div class="showcase-feature">
-
-                            <div class="feature-icon">
-
+            <div class="collections-content">
+                <div class="collections-header text-center">
+                    <h2 class="section-title">Seasonal Collections</h2>
+                    <p>Explore our curated seasonal collections that capture the essence of each period through carefully crafted fragrances and designs.</p>
+                </div>
+                <div class="collections-slider">
+                    <div class="swiper">
+                        <div class="swiper-wrapper">
+                            <!-- Collection 1 -->
+                            <div class="swiper-slide">
+                                <div class="collection-slide">
+                                    <img src="https://images.unsplash.com/photo-1592864849333-6ba7333fc9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80" alt="Autumn Harvest Collection" class="collection-image">
+                                    <div class="collection-info">
+                                        <h3 class="collection-info-title">Autumn Harvest</h3>
+                                        <p class="collection-info-desc">Warm, cozy scents that embody the richness of the fall season with notes of pumpkin, cinnamon and nutmeg.</p>
+                                        <a href="#" class="collection-link">
+                                            View Collection
+                                            <i class="fas fa-arrow-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Collection 2 -->
+                            <div class="swiper-slide">
+                                <div class="collection-slite">
+                                    <img src="https://images.unsplash.com/photo-1608069278555-7a88b9305bc2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80" alt="Winter Solstice Collection" class="collection-image">
+                                    <div class="collection-info">
+                                        <h3 class="collection-info-title">Winter Solstice</h3>
+                                        <p class="collection-info-desc">Invigorating winter scents with crisp pine, peppermint and warm vanilla to brighten the cold season.</p>
+                                        <a href="#" class="collection-link">
+                                            View Collection
+                                            <i class="fas fa-arrow-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Collection 3 -->
+                            <div class="swiper-slide">
+                                <div class="collection-slide">
+                                    <img src="https://images.unsplash.com/photo-1603114595874-2658d8c98c68?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80" alt="Spring Awakening Collection" class="collection-image">
+                                    <div class="collection-info">
+                                        <h3 class="collection-info-title">Spring Awakening</h3>
+                                        <p class="collection-info-desc">Fresh floral and citrus notes that capture the renewal of spring with hints of jasmine, bergamot and rain.</p>
+                                        <a href="#" class="collection-link">
+                                            View Collection
+                                            <i class="fas fa-arrow-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Collection 4 -->
+                            <div class="swiper-slide">
+                                <div class="collection-slide">
+                                    <img src="https images.unsplash.com/photo-1527689368860-454a83d27076?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80" alt="Summer Nights Collection" class="collection-image">
+                                    <div class="collection-info">
+                                        <h3 class="collection-info-title">Summer Nights</h3>
+                                        <p class="collection-info-desc">Tropical beach-inspired fragrances with coconut, sea salt and night blooming flowers for warm summer evenings.</p>
+                                        <a href="#" class="collection-link">
+                                            View Collection
+                                            <i class="fas fa-arrow-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Craftsmanship -->
+    <section class="section craft">
+        <div class="container">
+            <div class="craft-container">
+                <div class="craft-content">
+                    <h2 class="section-title">The Luminous Lux Craft</h2>
+                    <p>Every Luminous Lux candle is the result of meticulous craftsmanship and premium quality materials, ensuring an exceptional experience from first tight to final glow.</p>
+                    
+                    <div class="craft_features">
+                        <div class="craft-feature">
+                            <div class="craft-feature-icon">
                                 <i class="fas fa-leaf"></i>
-
                             </div>
-
-                            <div class="feature-text">
-
-                                <h4>Sustainable Materials</h4>
-
-                                <p>We use ethically sourced, sustainable ingredients in all our products.</p>
-
+                            <div class="craft-feature-content">
+                                <h4>Natural Soy Wax</h4>
+                                <p>Our proprietary blend of eco-friendly soy wax provides a clean, even burn and maximizes fragrance throw.</p>
                             </div>
-
                         </div>
-
-                       
-
-                        <div class="showcase-feature">
-
-                            <div class="feature-icon">
-
-                                <i class="fas fa-fire-alt"></i>
-
+                        
+                        <div class="craft-feature">
+                            <div class="craft-feature-icon">
+                                <i class="fas fa-spa"></i>
                             </div>
-
-                            <div class="feature-text">
-
-                                <h4>Clean Burning</h4>
-
-                                <p>Our proprietary wax blend ensures a clean, even burn with minimal soot.</p>
-
+                            <div class="craft-feature-content">
+                                <h4>Premium Fragrances</h4>
+                                <p>We source only the highest quality essential oils and fragrance blends to create complex, lasting scents.</p>
                             </div>
-
                         </div>
-
-                       
-
-                        <div class="showcase-feature">
-
-                            <div class="feature-icon">
-
-                                <i class="fas fa-flask"></i>
-
+                        
+                        <div class="craft-feature">
+                            <div class="craft-feature-icon">
+                                <i class="fas fa-hands"></i>
                             </div>
-
-                            <div class="feature-text">
-
-                                <h4>Master Perfumers</h4>
-
-                                <p>We collaborate with world-class perfumers to create unique, complex fragrances.</p>
-
+                            <div class="craft-feature-content">
+                                <h4>Hand-poured in Small Batches</h4>
+                                <p>Each candle receives individual attention from our artisans to ensure perfect consistency and quality.</p>
                             </div>
-
                         </div>
-
                     </div>
-
-                   
-
-                    <button class="cta-button">Discover Our Process</button>
-
+                    
+                    <a href="#" class="btn">Our Process</a>
                 </div>
-
-               
-
-                <div class="showcase-3d">
-
-                    <div class="canvas-container">
-
-                        <div class="canvas-placeholder"></div>
-
+                
+                <div class="craft-media">
+                    <div class="craft-media-canvas">
+                        <div class="craft-placeholder"></div>
                     </div>
-
-                    <div class="rotate-hint">
-
-                        <i class="fas fa-sync-alt"></i>
-
-                        <span>Rotate to explore</span>
-
+                    <div class="craft-hint">
+                        <i class="fas fa-heart"></i>
+                        Handmade with Love
                     </div>
-
                 </div>
-
             </div>
-
         </div>
-
     </section>
-
-   
-
-    <!-- Features -->
-
-    <section class="features">
-
+    
+    <!-- Values -->
+    <section class="section values">
         <div class="container">
-
-            <div class="text-center">
-
-                <h2 class="section-title">Why Choose Luminous</h2>
-
-                <p>Elevate your space with our premium candle collection</p>
-
+            <div class="values-header text-center">
+                <h2 class="section-title">Our Core Values</h2>
+                <p>At Luminous Lux, we're committed to more than just creating beautiful candles. These principles guide everything we do.</p>
             </div>
-
-           
-
-            <div class="features-grid">
-
-                <div class="feature-card">
-
-                    <i class="fas fa-shipping-fast"></i>
-
-                    <h3>Complimentary Shipping</h3>
-
-                    <p>Enjoy free shipping on all orders over $75. We carefully package each item to ensure safe delivery.</p>
-
+            
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-card-icon">
+                        <i class="fas fa-globe-europe"></i>
+                    </div>
+                    <h3 class="value-card-title">Sustainability</h3>
+                    <p class="value-card-desc">We prioritize environmentally responsible practices, from our plant-based waxes to our recyclable packaging.</p>
                 </div>
-
-               
-
-                <div class="feature-card">
-
-                    <i class="fas fa-hand-holding-heart"></i>
-
-                    <h3>Handcrafted Quality</h3>
-
-                    <p>Each candle is handcrafted in small batches to ensure exceptional quality and attention to detail.</p>
-
+                
+                <div class="value-card">
+                    <div class="value-card-icon">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <h3 class="value-card-title">Quality</h3>
+                    <p class="value-card-desc">Only premium ingredients make the cut - we test every batch to ensure superior performance and longevity.</p>
                 </div>
-
-               
-
-                <div class="feature-card">
-
-                    <i class="fas fa-recycle"></i>
-
-                    <h3>Sustainable Practices</h3>
-
-                    <p>Our commitment to sustainability extends from our ingredients to our recyclable packaging.</p>
-
+                
+                <div class="value-card">
+                    <div class="value-card-icon">
+                        <i class="fas fa-hand-holding-heart"></i>
+                    </div>
+                    <h3 class="value-card-title">Ethical Sourcing</h3>
+                    <p class="value-card-desc">We build direct relationships with suppliers who share our commitment to fair wages and humane working conditions.</p>
                 </div>
-
             </div>
-
         </div>
-
     </section>
-
-   
-
+    
     <!-- Newsletter -->
-
-    <section class="newsletter">
-
+    <section class="section newsletter">
         <div class="newsletter-bg"></div>
-
-        <div class="container newsletter-content">
-
-            <h2>Join Our Community</h2>
-
-            <p>Subscribe to receive exclusive offers, early access to new collections, and expert tips on creating the perfect ambiance.</p>
-
-            <form class="newsletter-form">
-
-                <input type="email" placeholder="Enter your email address" required>
-
-                <button type="submit">Subscribe</button>
-
-            </form>
-
-        </div>
-
-    </section>
-
-   
-
-    <!-- Footer -->
-
-    <footer>
-
         <div class="container">
-
-            <div class="footer-content">
-
-                <div class="footer-about">
-
-                    <div class="footer-logo">LUMINOUS</div>
-
-                    <p>At Luminous, we believe in the transformative power of scent. Our artisan candles are crafted to enhance your space and create moments of tranquility in your everyday life.</p>
-
-                    <div class="footer-social">
-
-                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-
-                        <a href="#" class="social-icon"><i class="fab fa-pinterest"></i></a>
-
-                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-
-                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-
-                    </div>
-
-                </div>
-
-               
-
-                <div class="footer-section">
-
-                    <h3>Shop</h3>
-
-                    <div class="footer-links">
-
-                        <a href="#" class="footer-link"><i class="fas fa-chevron-right"></i> All Products</a>
-
-                        <a href="#" class="footer-link"><i class="fas fa-chevron-right"></i> Collections</a>
-
-                        <a href="#" class="footer-link"><i class="fas fa-chevron-right"></i> Gift Sets</a>
-
-                        <a href="#" class="footer-link"><i class="fas fa-chevron-right"></i> Accessories</a>
-
-                        <a href="#" class="footer-link"><i class="fas fa-chevron-right"></i> Limited Editions</a>
-
-                    </div>
-
-                </div>
-
-               
-
-                <div class="footer-section">
-
-                    <h3>About</h3>
-
-                    <div class="footer-links">
-
-                        <a href="#" class="footer-link"><i class="fas fa-chevron-right"></i> Our Story</a>
-
-                        <a href="#" class="footer-link"><i class="fas fa-chevron-right"></i> Craftsmanship</a>
-
-                        <a href="#" class="footer-link"><i class="fas fa-chevron-right"></i> Sustainability</a>
-
-                        <a href="#" class="footer-link"><i class="fas fa-chevron-right"></i> Press</a>
-
-                        <a href="#" class="footer-link"><i class="fas fa-chevron-right"></i> Careers</a>
-
-                    </div>
-
-                </div>
-
-               
-
-                <div class="footer-section">
-
-                    <h3>Contact</h3>
-
-                    <div class="footer-contact">
-
-                        <p><i class="fas fa-map-marker-alt"></i> 123 Artisan Way, New York, NY 10001</p>
-
-                        <p><i class="fas fa-phone-alt"></i> +1 (212) 555-7890</p>
-
-                        <p><i class="fas fa-envelope"></i> hello@luminouscandles.com</p>
-
-                    </div>
-
-                </div>
-
+            <div class="newsletter-content">
+                <h2 class="newsletter-title">Join Our Community</h2>
+                <p class="newsletter-desc">Subscribe to receive exclusive offers, candle care tips, and early access to our seasonal collections.</p>
+                
+                <form class="newsletter-form">
+                    <input type="email" class="newsletter-input" placeholder="Your email address" required>
+                    <button type="submit" class="newsletter-submit">Subscribe</button>
+                </form>
             </div>
-
-           
-
-            <div class="footer-bottom">
-
-                <div class="copyright">© 2025 Luminous. All rights reserved.</div>
-
-                <div class="footer-bottom-links">
-
-                    <a href="#" class="footer-bottom-link">Privacy Policy</a>
-
-                    <a href="#" class="footer-bottom-link">Terms of Service</a>
-
-                    <a href="#" class="footer-bottom-link">Shipping & Returns</a>
-
-                </div>
-
-            </div>
-
         </div>
-
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <a href="#" class="footer-logo">LUMINOUS LUX</a>
+                    <p class="footer-about-text">Founded in 2012, Luminous Lux has been dedicated to crafting premium artisan candles that transform spaces into sanctuaries with our signature scents.</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-pinterest"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <div class="footer-links">
+                        <a href="#" class="footer-link">
+                            <i class="fas fa-chevron-right"></i>
+                            Shop All
+                        </a>
+                        <a href="#" class="footer-link">
+                            <i class="fas fa-chevron-right"></i>
+                            Best Sellers
+                        </a>
+                        <a href="#" class="footer-link">
+                            <i class="fas fa-chevron-right"></i>
+                            New Arrivals
+                        </a>
+                        <a href="#" class="footer-link">
+                            <i class="fas fa-chevron-right"></i>
+                            Gift Cards
+                        </a>
+                        <a href="#" class="footer-link">
+                            <i class="fas fa-chevron-right"></i>
+                            Sale
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-heading">Customer Care</h4>
+                    <div class="footer-links">
+                        <a href="#" class="footer-link">
+                            <i class="fas fa-chevron-right"></i>
+                            Contact Us
+                        </a>
+                        <a href="#" class="footer-link">
+                            <i class="fas fa-chevron-right"></i>
+                            FAQs
+                        </a>
+                        <a href="#" class="footer-link">
+                            <i class="fas fa-chevron-right"></i>
+                            Shipping Policy
+                        </a>
+                        <a href="#" class="footer-link">
+                            <i class="fas fa-chevron-right"></i>
+                            Returns & Exchanges
+                        </a>
+                        <a href="#" class="footer-link">
+                            <i class="fas fa-chevron-right"></i>
+                            Candle Care
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-heading">Contact</h4>
+                    <div class="footer-contact">
+                        <div class="footer-contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>123 Candlelight Lane, Portland, OR 97209</span>
+                        </div>
+                        <div class="footer-contact-item">
+                            <i class="fas fa-phone-alt"></i>
+                            <span>(503) 555-0182</span>
+                        </div>
+                        <div class="footer-contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>hello@luminouslux.com</span>
+                        </div>
+                        <div class="footer-contact-item">
+                            <i class="fas fa-clock"></i>
+                            <span>Mon-Fri: 9AM - 5PM PST</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="copyright">© 2023 Luminous Lux Candles. All rights reserved.</p>
+                <div class="footer-legal-links">
+                    <a href="#" class="footer-legal-link">Privacy Policy</a>
+                    <a href="#" class="footer-legal-link">Terms of Service</a>
+                    <a href="#" class="footer-legal-link">Accessibility</a>
+                </div>
+            </div>
+        </div>
     </footer>
-
-   
-
-    <!-- Custom Scripts -->
-
+    
     <script>
-
-        // Initialize GSAP ScrollTrigger
-
-        gsap.registerPlugin(ScrollTrigger);
-
-       
-
-        // Navigation scroll effect
-
-        window.addEventListener('scroll', function() {
-
-            const nav = document.querySelector('.nav-container');
-
-            if (window.scrollY > 50) {
-
-                nav.classList.add('scrolled');
-
-            } else {
-
-                nav.classList.remove('scrolled');
-
-            }
-
-        });
-
-       
-
-        // Mobile menu toggle
-
-        const menuToggle = document.querySelector('.menu-toggle');
-
-        const navLinks = document.querySelector('.nav-links');
-
-       
-
-        menuToggle.addEventListener('click', function() {
-
-            navLinks.classList.toggle('active');
-
-            document.body.classList.toggle('menu-open');
-
-        });
-
-       
-
-        // Custom cursor
-
-        const cursor = document.querySelector('.custom-cursor');
-
-       
-
+        // Custom Cursor
+        const cursor = document.querySelector('.cursor');
+        
         document.addEventListener('mousemove', (e) => {
-
             cursor.style.left = e.clientX + 'px';
-
             cursor.style.top = e.clientY + 'px';
-
         });
-
-       
-
-        document.addEventListener('mousedown', () => {
-
-            cursor.classList.add('active');
-
-        });
-
-       
-
-        document.addEventListener('mouseup', () => {
-
-            cursor.classList.remove('active');
-
-        });
-
-       
-
-        // Add hover effect for interactive elements
-
-        const interactiveElements = document.querySelectorAll('a, button, .product-card, .collection-slide, .feature-card');
-
-       
-
-        interactiveElements.forEach(element => {
-
-            element.addEventListener('mouseenter', () => {
-
+        
+        document.querySelectorAll('a, button, .product-action-btn, .nav-icon').forEach(el => {
+            el.addEventListener('mouseenter', () => {
                 cursor.classList.add('active');
-
             });
-
-           
-
-            element.addEventListener('mouseleave', () => {
-
+            
+            el.addEventListener('mouseleave', () => {
                 cursor.classList.remove('active');
-
             });
-
         });
-
-       
-
-        // Initialize Swiper
-
-        const swiper = new Swiper('.swiper-container', {
-
-            slidesPerView: 1,
-
-            spaceBetween: 30,
-
-            loop: true,
-
-            centeredSlides: true,
-
-            autoplay: {
-
-                delay: 5000,
-
-                disableOnInteraction: false,
-
-            },
-
-            pagination: {
-
-                el: '.swiper-pagination',
-
-                clickable: true,
-
-            },
-
-            navigation: {
-
-                nextEl: '.swiper-button-next',
-
-                prevEl: '.swiper-button-prev',
-
-            },
-
-            breakpoints: {
-
-                640: {
-
-                    slidesPerView: 1.5,
-
-                },
-
-                992: {
-
-                    slidesPerView: 2.5,
-
-                }
-
-            }
-
+        
+        document.addEventListener('mousedown', () => {
+            cursor.classList.add('click');
         });
-
-       
-
-        // GSAP Animations
-
-        // Hero section animations are handled with CSS for initial load
-
-       
-
-        // Scroll animations for sections
-
-        const sections = document.querySelectorAll('section:not(.hero)');
-
-       
-
-        sections.forEach(section => {
-
-            gsap.from(section.querySelector('.section-title'), {
-
+        
+        document.addEventListener('mouseup', () => {
+            cursor.classList.remove('click');
+        });
+        
+        // Mobile Navigation
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            menuToggle.innerHTML = navLinks.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+            document.querySelector('.nav').classList.toggle('active');
+        });
+        
+        // Scroll Animation with GSAP
+        gsap.registerPlugin(ScrollTrigger);
+        
+        gsap.utils.toArray('.section').forEach(section => {
+            gsap.from(section, {
                 scrollTrigger: {
-
                     trigger: section,
-
-                    start: "top 80%"
-
+                    start: "top 80%",
+                    toggleActions: "play none none none"
                 },
-
-                y: 50,
-
                 opacity: 0,
-
+                y: 50,
                 duration: 1
-
             });
-
-           
-
-            if (section.querySelector('p:not(.hero-description)')) {
-
-                gsap.from(section.querySelector('p:not(.hero-description)'), {
-
-                    scrollTrigger: {
-
-                        trigger: section,
-
-                        start: "top 80%"
-
-                    },
-
-                    y: 30,
-
-                    opacity: 0,
-
-                    duration: 1,
-
-                    delay: 0.2
-
-                });
-
-            }
-
         });
+        
+        // Initialize Swiper
+        const swiper = new Swiper('.swiper', {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            loop: true,
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev'
+            },
+            breakpoints: {
+                768: {
+                    slidesPerView: 2
+                },
+                1200: {
+                    slidesPerView: 3
+                }
+            }
+        });
+        
+        // Navigation Scroll Effect
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                document.querySelector('.nav').classList.add('scrolled');
+            } else {
+                document.querySelector('.nav').classList.remove('scrolled');
+            }
+        });
+        
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+                
+                // Close mobile menu if open
+                if (navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                    menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                    document.querySelector('.nav').classList.remove('active');
+                }
+            });
+        });
+        
+        // Add to Cart Interaction
+        document.querySelectorAll('.product-add-to-cart').forEach(button => {
+            button.addEventListener('click', function() {
+                const count = document.querySelector('.cart-count');
+                let currentCount = parseInt(count.textContent);
+                count.textContent = currentCount + 1;
+                
+                // Animation
+                gsap.to(count, {
+                    scale: 1.5,
+                    duration: 0.3,
+                    yoyo: true,
+                    repeat: 1
+                });
+                
+                // Button feedback
+                gsap.to(this, {
+                    backgroundColor: '#5a4d3d',
+                    duration: 0.5,
+                    color: '#fff'
+                });
+                
+                // Reset after delay
+                setTimeout(() => {
+                    gsap.to(this, {
+                        backgroundColor: 'transparent',
+                        color: '#7a6a58'
+                    });
+                }, 1000);
+            });
+        });
+    </script>
+</body>
+</html>
 
-       
-
-        // Product cards animation
-
-        gsap.from('.product-card',
-
-
-](https://github.com/caseybattle/LuminousLux.git)
