@@ -1411,7 +1411,7 @@
                 <!-- Product 3 -->
                 <div class="product-card">
                     <div class="product-media">
-                        <img src="https://images.unsplash.com/photo-1654869121817-edae0d5f390e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=720&q=80" alt="Sea Salt & Oak" class="product-image">
+                        <img src="C:\Users\casba\Downloads\candle4.jpg" alt="Sea Salt & Oak" class="product-image">
                         <div class="product-overlay">New Arrival</div>
                         <div class="product-actions">
                             <button class="product-action-btn"><i class="fas fa-search"></i></button>
